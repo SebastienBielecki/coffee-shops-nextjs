@@ -8,8 +8,16 @@ import coffeeStore from "../data/coffee-stores.json"
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
-  
+export async function getStaticProps(context) {
+  return {
+    props: {
+      coffeeStore
+    },
+  }
+}
+
+export default function Home(props) {
+  console.log(props);
   const handleOnBannerBtnClick = () => {
     console.log("Hi banner button");
   }
@@ -29,8 +37,8 @@ export default function Home() {
           <Image src="/static/hero-image.png" width={700} height={400} alt="hero-img"/>
         </div>
         <div className={styles.cardLayout}>
-          {coffeeStore.map(store =>{
-            return <>
+          {props.coffeeStore.map(store =>{
+            return (
               <Card
                 key={store.id}
                 name={store.name}
@@ -38,7 +46,7 @@ export default function Home() {
                 href={`/coffee-store/${store.id}`}
                 className={styles.card}
               ></Card>
-            </>
+            )
           })}
           
         </div>
