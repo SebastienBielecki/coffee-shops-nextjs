@@ -63,8 +63,8 @@ export default function Home(props) {
           buttonText={isFindingLocation ? "Locating..." : "View stores nearby"}
           handleOnClick={handleOnBannerBtnClick}
         />
-        {locationErrorMsg !== "" && <p className='errorMsg'>Something went wrong" {locationErrorMsg}</p>}
-        {coffeeStoresError && <p className='errorMsg'>Something went wrong" {coffeeStoresError}</p>}
+        {locationErrorMsg !== "" && <p className='errorMsg'>Something went wrong: {locationErrorMsg}</p>}
+        {coffeeStoresError && <p className='errorMsg'>Something went wrong: {coffeeStoresError}</p>}
         <div className={styles.heroImage}>
           <Image src="/static/hero-image.png" width={700} height={400} alt="hero-img"/>
         </div>
