@@ -40,6 +40,15 @@
   color: var(--text-white-100);
 }
 
+.sectionWrapper {
+  margin-top: 5rem;
+}
+
+.errorMsg {
+  position: absolute;
+  z-index: 3;
+}
+
 /** Breakpoints:
   sm: min-width: 640px;
   md: min-width: 768px;
