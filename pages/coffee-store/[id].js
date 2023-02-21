@@ -21,11 +21,12 @@ export async function getStaticPaths() {
 export async function getStaticProps(staticProps) {
     const coffeeStores = await fetchCoffeeStores()
     const params = staticProps.params
+    const findCoffeeStoreById = coffeeStores.find(coffeStore => {
+      return coffeStore.id.toString() === params.id
+  })
     return {
       props: {
-        coffeeStore: coffeeStores.find(coffeStore => {
-            return coffeStore.id.toString() === params.id
-        })
+        coffeeStore: findCoffeeStoreById ? findCoffeeStoreById : {}
       }
     }
 }
